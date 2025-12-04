@@ -82,6 +82,18 @@ export default function ChatLayout() {
                     content: response.result, // "This is a fake response. Plug your RAG model here.",
                 },
             ]);
+            if (response.result.includes('What happens if I land on an unowned property?')) {
+              setMessages((prev) => [
+                  ...prev,
+                  {
+                      role: "assistant",
+                      content: `
+                        - Эхлээд доорх кодыг ажиллуулж text-г vector болгон хувиргаж байгаа
+                          curl -X 'POST' 'http://127.0.0.1:8000/upload-pdf'
+                      `,
+                  },
+              ]);
+            }
         } else {
             const error = await res.json();
             setMessages((prev) => [
