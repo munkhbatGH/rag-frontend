@@ -1,5 +1,7 @@
 # Next.js & HeroUI
 
+# Node version: v24.5.0
+
 ### DEV
 
 ```bash
